@@ -1,0 +1,204 @@
+
+<div class="app">
+
+  <header class="hd">
+    <div class="logo">QX</div>
+    <div>
+      <div class="bt">QX AUTO <span>BOT</span></div>
+      <div class="bs" id="tfLabel">Engine · REAL · 5S</div>
+    </div>
+    <div class="hbal"><span>BALANCE</span><b id="hdBal" class="grn">₹10,000</b></div>
+    <button class="hbtn on" id="sndBtn">🔊</button>
+    <button class="hbtn dan" id="killBtn">■</button>
+  </header>
+
+  <div class="strip" id="strip"><i></i>BOT RUNNING — AUTO SCAN<b id="hClock">--:--</b></div>
+
+  <main class="screens">
+
+    
+    <section class="screen active" id="scChart">
+      <div class="mkt">
+        <div class="mk on real" data-m="REAL">REAL MARKET</div>
+        <div class="mk otc" data-m="OTC">OTC 24/7</div>
+      </div>
+
+      <div class="exps" id="exps">
+        <div class="exp on" data-e="5">5S</div>
+        <div class="exp" data-e="1">1M</div>
+        <div class="exp" data-e="2">2M</div>
+        <div class="exp" data-e="5">5M</div>
+        <div class="exp" data-e="10">10M</div>
+        <div class="exp" data-e="15">15M</div>
+      </div>
+
+      <div class="card" style="padding:7px 9px">
+        <div class="row">
+          <div style="display:flex;align-items:center;gap:7px;flex:1">
+            <select id="symSel" style="width:auto;flex:1"></select>
+            <span class="chip" id="payoutChip">PAY <b>87%</b></span>
+          </div>
+          <div class="chips" id="chips"></div>
+        </div>
+      </div>
+
+      <div class="cvWrap">
+        <canvas class="ch" id="cv"></canvas>
+        <div class="scan"></div>
+        <div class="badge" id="badge"><i></i>LIVE</div>
+      </div>
+
+      <div class="card" style="padding:8px 10px">
+        <div class="row">
+          <div><div class="lbl">PRICE</div><div class="val" id="lastPx">--</div></div>
+          <div style="text-align:right"><div class="lbl">CHANGE</div><div class="val" id="chg">--</div></div>
+        </div>
+      </div>
+
+      <div class="sig" id="sigCard">
+        <div class="sigTop"><span id="sigTag">LIVE SIGNAL</span><b id="sigConf">--%</b></div>
+        <div class="sigMain" id="sigMain">SCANNING</div>
+        <div class="sigSub" id="sigSub">Engine confluence dhoond raha hai...</div>
+        <div class="conf"><i id="confFill"></i></div>
+        <div class="reasons" id="reasons"></div>
+      </div>
+
+      <div class="card tm">
+        <div class="trow"><span>EXPIRY</span><b id="exitAt">--:--</b></div>
+        <div class="trow"><span>TIME LEFT</span><b id="left" class="hot">--:--</b></div>
+        <div class="bar"><i id="barFill"></i></div>
+      </div>
+
+      <div class="grid2">
+        <div class="lv"><span>ENTRY</span><b id="lvEntry">--</b></div>
+        <div class="lv"><span>STAKE</span><b id="lvStake">--</b></div>
+        <div class="lv"><span>PAYOUT</span><b id="lvPay" class="grn">--</b></div>
+        <div class="lv"><span>PROFIT IF WIN</span><b id="lvProfit" class="grn">--</b></div>
+      </div>
+
+      <div class="acts">
+        <button class="act c" id="btnCall">CALL ▲</button>
+        <button class="act p" id="btnPut">PUT ▼</button>
+      </div>
+    </section>
+
+    
+    <section class="screen" id="scHist">
+      <div class="grid3">
+        <div class="st"><span>WINS</span><b id="sW" class="grn">0</b></div>
+        <div class="st"><span>LOSS</span><b id="sL" class="red">0</b></div>
+        <div class="st"><span>ACCURACY</span><b id="sP">--</b></div>
+      </div>
+      <div class="grid3">
+        <div class="st"><span>STREAK</span><b id="sStreak">0</b></div>
+        <div class="st"><span>BEST</span><b id="sBest">0</b></div>
+        <div class="st"><span>WORST</span><b id="sWorst">0</b></div>
+      </div>
+      <div class="card">
+        <div class="lbl">SESSION QUALITY (last 10)</div>
+        <div class="qm"><i id="qmFill"></i></div>
+        <div class="note" style="margin-top:5px" id="qmTxt">Sample ka wait...</div>
+      </div>
+      <div class="card">
+        <div class="lbl" style="margin-bottom:6px">TRADE LOG</div>
+        <div class="list" id="hist"><div class="empty">Abhi koi trade nahi</div></div>
+      </div>
+    </section>
+
+    
+    <section class="screen" id="scBot">
+      <div class="card">
+        <div class="row">
+          <div><div class="lbl">BOT ENGINE</div><div style="font-size:13px;font-weight:800" id="botState">RUNNING</div></div>
+          <div class="tg on" id="botTg"></div>
+        </div>
+        <div class="note" style="margin-top:6px">Bot ON = poora automatic. Har qualified signal khud lagta hai, expiry pe khud settle hota hai, phir agla asset scan hota hai. Koi haath lagane ki zaroorat nahi.</div>
+      </div>
+
+      <div class="card">
+        <div class="row"><span class="lbl">BALANCE</span><b class="val" id="bBal">₹10,000</b></div>
+        <div class="row" style="margin-top:5px"><span class="lbl">SESSION P&amp;L</span><b class="val" id="bPnl">₹0</b></div>
+        <div class="row" style="margin-top:5px"><span class="lbl">NEXT STAKE</span><b class="val" id="bStake">₹100</b></div>
+        <div class="row" style="margin-top:5px"><span class="lbl">TRADES</span><b class="val" id="bTr">0 / 50</b></div>
+        <div class="row" style="margin-top:5px"><span class="lbl">COOLDOWN</span><b class="val" id="bCool">0</b></div>
+        <canvas class="eq" id="eqc" style="margin-top:8px"></canvas>
+        <button class="hbtn" id="resetAcc" style="width:100%;margin-top:8px;height:31px;font-size:10.5px">RESET ACCOUNT</button>
+      </div>
+
+      <div class="card">
+        <div class="lbl" style="margin-bottom:7px">AUTO ENGINE</div>
+        <div class="row"><span style="font-size:11px">Auto rotate assets</span><div class="tg on" id="tgRot"></div></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Circuit breaker (losses)</span>
+          <input type="number" id="inBrk" value="3" min="2" max="8" step="1" style="width:66px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Breaker cooldown (candles)</span>
+          <input type="number" id="inCool" value="4" min="1" max="20" step="1" style="width:66px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Daily target ₹</span>
+          <input type="number" id="inTgt" value="2000" min="100" step="100" style="width:84px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Daily stop ₹</span>
+          <input type="number" id="inStop" value="1500" min="100" step="100" style="width:84px;text-align:center"></div>
+      </div>
+
+      <div class="card">
+        <div class="lbl" style="margin-bottom:7px">RISK</div>
+        <div class="row"><span style="font-size:11px">Base stake ₹</span>
+          <input type="number" id="inStake" value="100" min="10" step="10" style="width:84px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Payout %</span>
+          <input type="number" id="inPay" value="87" min="50" max="95" step="1" style="width:66px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Martingale</span><div class="tg" id="tgMart"></div></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Martingale steps</span>
+          <input type="number" id="inSteps" value="2" min="0" max="4" step="1" style="width:66px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Max trades</span>
+          <input type="number" id="inMax" value="50" min="1" max="300" step="1" style="width:66px;text-align:center"></div>
+        <div class="row" style="margin-top:6px"><span style="font-size:11px">Min confidence %</span>
+          <input type="number" id="inConf" value="88" min="0" max="99" step="1" style="width:66px;text-align:center"></div>
+      </div>
+
+      <div class="card">
+        <div class="lbl" style="margin-bottom:6px">BOT DECISIONS</div>
+        <div class="list" id="botlog"><div class="empty">Koi decision nahi</div></div>
+      </div>
+    </section>
+
+    
+    <section class="screen" id="scAlerts">
+      <div class="card row">
+        <div><div class="lbl">PUSH ALERTS</div><div class="note">Notification + vibration</div></div>
+        <div class="tg" id="notifTg"></div>
+      </div>
+      <div class="card">
+        <div class="lbl" style="margin-bottom:6px">FEED</div>
+        <div class="list" id="alerts"><div class="empty">Feed khali hai</div></div>
+      </div>
+      <button class="hbtn" id="clearAlerts" style="width:100%;height:33px;font-size:10.5px">CLEAR FEED</button>
+    </section>
+
+    
+    <section class="screen" id="scSet">
+      <div class="install" id="installBox"><div>App ki tarah install karo</div><button id="installBtn">INSTALL</button></div>
+      <div class="card">
+        <div class="row"><span style="font-size:11px">Sound</span><div class="tg on" id="tgSound"></div></div>
+        <div class="row" style="margin-top:8px"><span style="font-size:11px">Vibration</span><div class="tg on" id="tgVib"></div></div>
+        <div class="row" style="margin-top:8px"><span style="font-size:11px">Screen awake</span><div class="tg" id="tgWake"></div></div>
+        <div class="row" style="margin-top:8px"><span style="font-size:11px">Speed</span>
+          <select id="spdSel" style="width:110px"><option value="1">1×</option><option value="2">2×</option><option value="3">3×</option></select></div>
+      </div>
+      <div class="card">
+        <div class="lbl" style="margin-bottom:6px">STRATEGY MAP</div>
+        <div class="note">REAL market = momentum engine (EMA stack, breakout, MACD expansion, body close, volume). OTC market = mean-reversion engine (BB extreme rejection, RSI/Stoch extreme turn, wick rejection, mean distance) — kyunki OTC algorithmically smooth hota hai. 5S pe sabse strict gate (80+), 15M pe 68. Chop filter + higher-TF veto + overextension guard har signal pe lagta hai. Binary settlement expiry candle ke close se. Ye simulated feed hai — Quotex API public nahi, real tick ke liye WebSocket bridge chahiye.</div>
+      </div>
+      <button class="hbtn" id="resetAll" style="width:100%;height:33px;font-size:10.5px">FACTORY RESET</button>
+    </section>
+
+  </main>
+
+  <nav class="nav">
+    <button class="on" data-sc="scChart"><i>📈</i>CHART</button>
+    <button data-sc="scHist"><i>📋</i>LOG</button>
+    <button data-sc="scBot"><i>🤖</i>BOT</button>
+    <button data-sc="scAlerts"><i>🔔</i>ALERTS</button>
+    <button data-sc="scSet"><i>⚙</i>SETUP</button>
+  </nav>
+</div>
+
+
+

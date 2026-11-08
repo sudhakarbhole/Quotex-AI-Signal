@@ -1,0 +1,3 @@
+Status: Source project assembled; Python syntax checked.
+Not included: prebuilt APK, Quotex login, broker execution, official Quotex API.
+Android APK build and device testing must be performed in Android Studio.
