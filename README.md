@@ -1,1 +1,0 @@
-# Quotex-AI-Signal
